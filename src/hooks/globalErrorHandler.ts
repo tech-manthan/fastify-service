@@ -11,11 +11,9 @@ function globalErrorHandler(
   error: FastifyError,
   done: DoneFuncWithErrOrRes,
 ) {
-  const statusCode = error.statusCode || 500;
+  //   const statusCode = error.statusCode || 500;
 
   req.log.error(error);
-
-  reply.status(statusCode);
 
   done();
 }
