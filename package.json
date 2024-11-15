@@ -1,0 +1,11 @@
+{
+  "name": "fastify-service",
+  "version": "1.0.0",
+  "description": "Service Templater Using Fastify",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Manthan Sharma <techmanthansharma@gmail.com>",
+  "license": "ISC"
+}
