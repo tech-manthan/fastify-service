@@ -3,6 +3,7 @@ import { FastifyInstance } from "fastify";
 
 import { diContainerClassic } from "@fastify/awilix";
 import { asValue } from "awilix";
+import { PrismaClient } from "@prisma/client";
 
 export const registerAwilix = async (app: FastifyInstance) => {
   try {
@@ -20,11 +21,13 @@ export const registerAwilix = async (app: FastifyInstance) => {
 };
 
 const isDepenciesInjected = false;
+const prismaClient = new PrismaClient();
 
 export const injectDependencies = (app: FastifyInstance) => {
   if (!isDepenciesInjected) {
     diContainerClassic.register({
       logger: asValue(app.log),
+      prismaClient: asValue(prismaClient),
     });
   }
   app.log.info({}, "dependencies injected successfully");
