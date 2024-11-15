@@ -1,6 +1,6 @@
-import fastifyEnv from "@fastify/env";
 import Fastify from "fastify";
 import { registerEnv } from "./config";
+import { registerAwilix } from "./ioc";
 
 const app = Fastify({
   logger: true,
@@ -8,8 +8,9 @@ const app = Fastify({
 
 const configure = async () => {
   await registerEnv(app);
+  await registerAwilix(app);
 };
 
-configure();
+void configure();
 
 export default app;

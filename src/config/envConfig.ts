@@ -28,6 +28,7 @@ const registerEnv = async (app: FastifyInstance) => {
   try {
     app.register(fastifyEnv, envOptions);
     await app.after();
+    app.log.info({}, "environment variables registered successfully");
   } catch (err) {
     app.log.error(err);
     process.exit(1);
